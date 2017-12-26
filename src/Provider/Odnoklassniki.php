@@ -45,6 +45,7 @@ class Odnoklassniki extends OAuth2
         );
 
         $sig = md5(
+            'access_token' => $this->getStoredData('access_token'),
             'application_key=' . $this->config->get('keys')['key'] .
             'fields=' . implode(',', $fields) .
             'method=users.getCurrentUser' .
